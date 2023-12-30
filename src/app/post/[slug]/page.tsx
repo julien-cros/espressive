@@ -1,5 +1,5 @@
 import { allPosts } from "contentlayer/generated";
-import Render from "@/components/render";
+import Render from "@/components/Render";
 import React from "react";
 
 type PostPageProps = {
