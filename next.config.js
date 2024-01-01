@@ -16,6 +16,21 @@ const nextConfig = {
 		  destination: "/post/perfect-grinder",
 		  permanent: true,
 		},
+		{
+		  source: "/perfect-espresso-machine",
+		  destination: "/post/perfect-espresso-machine",
+		  permanent: true,
+		},
+		{
+		  source: "/perfect-milk",
+		  destination: "/post/perfect-milk",
+		  permanent: true,
+		},
+		{
+		  source: "/the-world-of-tamper",
+		  destination: "/post/the-world-of-tamper",
+		  permanent: true,
+		},
 	  ];
 	},
   };
