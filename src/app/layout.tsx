@@ -21,7 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={poppins.className}>
-	  <div className="w-full pt-36 flex flex-col items-center">
+	  <div className="w-full pt-36 flex flex-col items-center fixed">
           <Link href="/" className="text-5xl font-bold">
 			espressive
           </Link>
