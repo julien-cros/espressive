@@ -4,8 +4,8 @@ import Link from "next/link";
 
 export default function Home() {
   return (
-    <main className="flex flex-col items-center">
-      <div className="w-2/3 pt-48 fixed">
+    <main className="flex h-full w-full flex-col items-center">
+      <div className="w-2/3 h-full pt-48 fixed">
 			<div className="border-dashed border-[1px] border-black w-full h-[600px]">
 			<div className="w-full h-[120px] flex items-center border-dashed border-b-[1px] border-black ">
 				<p className="text-9xl font-black tracking-[-0.4rem]">The</p>
@@ -24,12 +24,12 @@ export default function Home() {
 			</div>
 			</div>
       </div>
-      <div className="pt-64 h-full w-2/3 flex flex-col justify-center items-start">
+      <div className="h-screen w-screen snap-y snap-mandatory overflow-scroll z-10 ">
         {allPosts
           .sort((a, b) => compareDesc(a.createdAt, b.createdAt))
           .map((p) => (
-            <Link key={p.title} href={p.url} className="flex p-[105px]">
-              <div className="flex flex-col">
+            <Link key={p.title} href={p.url} className="flex">
+              <div className="h-screen flex justify-center items-center w-2/3 pb-32 snap-start">
                 <h2 className="text-2xl">{p.title}</h2>
               </div>
             </Link>
