@@ -5,7 +5,7 @@ import Link from "next/link";
 export default function Home() {
   return (
     <main className="flex flex-col items-center">
-      <div className="w-2/3 fixed">
+      <div className="w-2/3 pt-48 fixed">
 			<div className="border-dashed border-[1px] border-black w-full h-[600px]">
 			<div className="w-full h-[120px] flex items-center border-dashed border-b-[1px] border-black ">
 				<p className="text-9xl font-black tracking-[-0.4rem]">The</p>
@@ -24,11 +24,11 @@ export default function Home() {
 			</div>
 			</div>
       </div>
-      <div className="">
+      <div className="pt-64 h-full w-2/3 flex flex-col justify-center items-start">
         {allPosts
           .sort((a, b) => compareDesc(a.createdAt, b.createdAt))
           .map((p) => (
-            <Link key={p.title} href={p.url} className="flex p-[120px]">
+            <Link key={p.title} href={p.url} className="flex p-[105px]">
               <div className="flex flex-col">
                 <h2 className="text-2xl">{p.title}</h2>
               </div>
