@@ -3,13 +3,9 @@ type TitleProps = {
 	children: React.ReactNode
 	threshold: number;
 	duration: string;
-	x: number | undefined;
-	y: number | undefined;
 };
 
-const Titles = ({children, threshold, duration, x, y }: TitleProps ) => {
-    x = x || 0
-    y = y || 0
+const Titles = ({children, threshold, duration }: TitleProps ) => {
     const ref = useRef(null)
     const [intersecting, setIntersecting] = useState(false)
 
@@ -37,13 +33,15 @@ useEffect(() => {
 
 return (
 	<div
+		ref={ref}
         style={
             {
                 transitionDuration: duration,
-                transform:!intersecting ? `translate(${x}px, ${y}px)` : "translate(0px, 0px)"
+                transform:"translate(0px, 0px)"
             }
         }
-        className={`transition ${intersecting ? "opacity-100" : "opacity-0"}`} ref={ref}>
+        className={`transition ${intersecting ? "opacity-100" : "opacity-0"}`}
+		>
         	{children}
     </div>
 )

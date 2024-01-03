@@ -3,7 +3,7 @@
 import { allPosts } from "contentlayer/generated";
 import { compareDesc } from "date-fns";
 import Link from "next/link";
-import Titles from "@/components/titles";
+import Titles from "@/components/Titles";
 
 export default function Home() {
   // const observer = new IntersectionObserver((entries) => {
@@ -46,17 +46,17 @@ export default function Home() {
         {allPosts
           .sort((a, b) => compareDesc(a.createdAt, b.createdAt))
           .map((p) => (
-            <Titles threshold={1} duration="300ms" x={0} y={0}>
-              <Link key={p.title} href={p.url} className="flex">
-                <div className="h-[870px] flex justify-center items-center w-2/3 pb-32 snap-start">
-                  <h2 className="text-2xl">{p.title}</h2>
-                </div>
-              </Link>
-            </Titles>
-          ))}
+			<div key={p.title}>
+				<Titles threshold={1} duration="100ms">
+				  <div className="h-[860px] flex justify-center items-center w-2/3 pb-32 snap-start" key={p.title}>
+					<Link href={p.url} className="flex">
+					  <h2 className="text-2xl">{p.title}</h2>
+					</Link>
+				  </div>
+				</Titles>
+			</div>
+			  ))}
       </div>
     </main>
   );
 }
-
-// h-screen flex justify-center items-center w-2/3 pb-32 snap-start
