@@ -45,10 +45,10 @@ export default function Home() {
       <div className="h-screen w-screen snap-y snap-mandatory overflow-scroll z-10">
         {allPosts
           .sort((a, b) => compareDesc(a.createdAt, b.createdAt))
-          .map((p) => (
+          .map((p, index) => (
 			<div key={p.title}>
-				<Titles threshold={1} duration="100ms">
-				  <div className="h-[860px] flex justify-center items-center w-2/3 pb-32 snap-start" key={p.title}>
+				<Titles threshold={1} duration="300ms">
+				  <div className={ index % 2 === 0 ? `h-[860px] flex justify-center items-center w-2/3 pb-32 snap-start snap-always` : `w-full h-full flex justify-end items-end pb-60 pt-[600px] pr-80 snap-start snap-always`} key={p.title}>
 					<Link href={p.url} className="flex">
 					  <h2 className="text-2xl">{p.title}</h2>
 					</Link>
