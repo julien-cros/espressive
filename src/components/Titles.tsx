@@ -18,8 +18,10 @@ useEffect(() => {
                 setIntersecting(false)
             }
         }, {
-            threshold
-        })
+            threshold,
+			rootMargin: "0px",
+        },
+		)
 
         intersectionObserver.observe(ref.current)
 
