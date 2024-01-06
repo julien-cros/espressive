@@ -33,10 +33,10 @@ export default async function Home() {
           .map((p) => (
             <div key={p.title} className="p-10">
                 <div
-                  className={"pl-10 flex items-center justify-between border-t-2 border-black"}
+                  className={"pl-10 border-t-2 border-black"}
                   key={p.title}
                 >
-                  <Link href={p.url} className="border-b-4 border-black ">
+                  <Link href={p.url} className="">
                     <h2 className="text-2xl">{p.title}</h2>
                   </Link>
 				<h3 className="pr-10 text-slate-600 text-xl">{p.updatedAt}</h3>
