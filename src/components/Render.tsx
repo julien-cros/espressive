@@ -13,8 +13,10 @@ export default function Render({ code }: RenderProps) {
   const MDX = useMDXComponent(code);
 
   return (
-    <article className="h-full w-full mt-40">
-      <MDX />
-    </article>
+    <div className="w-full h-full flex flex-col justify-center items-center">
+      <article className="h-full md:w-2/3 w-full p-10 flex flex-col justify-center">
+        <MDX />
+      </article>
+    </div>
   );
 }
