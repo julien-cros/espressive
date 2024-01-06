@@ -7,7 +7,7 @@ export default function Loading() {
   return (
     <div className="fixed w-full h-full">
       <div className="w-full h-full flex flex-col justify-center items-center">
-        <h3 className="text-4xl lg:text-8xl text-center font-black pb-4 whitespace-pre">
+        <h3 className="text-4xl md:text-8xl text-center font-black pb-4 whitespace-pre">
           The espresso
           <br /> Universe
         </h3>
