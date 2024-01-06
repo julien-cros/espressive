@@ -1,61 +1,50 @@
-"use client";
+'use client'
 
 import { allPosts } from "contentlayer/generated";
 import { compareDesc } from "date-fns";
 import Link from "next/link";
-import Titles from "@/components/Titles";
 
-export default function Home() {
-  // const observer = new IntersectionObserver((entries) => {
-  // 	entries.forEach((entry) => {
-  // 		console.log(entry);
-  // 		if (entry.isIntersecting) {
-  // 			entry.target.classList.add("my-show");
-  // 		}
-  // 		else {
-  // 			entry.target.classList.remove("my-show");
-  // 		}
-  // 	});
-  // });
-
-  // const hiddenElements = document.querySelectorAll(".my-hidden");
-  // hiddenElements.forEach((el) => observer.observe(el));
+export default async function Home() {
+  await new Promise((resolve) => setTimeout(resolve, 4000));
 
   return (
-    <main className="flex h-full w-full flex-col items-center">
-      <div className="w-2/3 h-full pt-48 fixed">
-        <div className="border-dashed border-[1px] border-black w-full h-[600px]">
-          <div className="w-full h-[120px] flex items-center border-dashed border-b-[1px] border-black ">
+    <main className="flex h-full w-full flex-col items-center pb-10">
+      <div className="h-full w-full flex justify-center mt-32 text-5xl font-bold">
+        <h2>espressive</h2>
+      </div>
+      <div className="w-2/3 h-full mt-10">
+        <div className="border-t-8 border-black w-full h-full">
+          <div className="w-full h-[120px] flex items-center ">
             <p className="text-9xl font-black tracking-[-0.4rem]">The</p>
           </div>
-          <div className="w-full h-[120px] flex items-center border-dashed border-b-[1px] border-black"></div>
-          <div className="w-full h-[120px] flex items-center justify-end border-dashed border-b-[1px] border-black">
-            <p className="text-right text-9xl font-black tracking-[-0.4rem] pr-2">
+          <div className="w-full h-[120px] border-t-8 border-black  flex items-center justify-end">
+            <p className="text-right  text-9xl font-black tracking-[-0.4rem] pr-2">
               Espresso
             </p>
           </div>
-          <div className="w-full h-[120px] flex items-center justify-end border-dashed border-b-[1px] border-black "></div>
-          <div className="w-full h-[120px]">
+          <div className="w-full h-[120px] flex items-center border-t-8 border-black ">
             <p className="text-9xl flex items-center font-black tracking-[-0.4rem]">
               Universe
             </p>
           </div>
-        </div>
-      </div>
-      <div className="h-screen w-screen snap-y snap-mandatory overflow-scroll z-10">
+      <div className="gap-4 pt-36">
         {allPosts
           .sort((a, b) => compareDesc(a.createdAt, b.createdAt))
-          .map((p, index) => (
-			<div key={p.title}>
-				<Titles threshold={1} duration="300ms">
-				  <div className={ index % 2 === 0 ? `h-[860px] flex justify-center items-center w-2/3 pb-32 snap-start snap-always` : `w-full h-full flex justify-end items-end pb-60 pt-[600px] pr-80 snap-start snap-always`} key={p.title}>
-					<Link href={p.url} className="flex">
-					  <h2 className="text-2xl">{p.title}</h2>
-					</Link>
-				  </div>
-				</Titles>
-			</div>
-			  ))}
+          .map((p) => (
+            <div key={p.title} className="p-10">
+                <div
+                  className={"pl-10 flex items-center justify-between border-t-2 border-black"}
+                  key={p.title}
+                >
+                  <Link href={p.url} className="border-b-4 border-black ">
+                    <h2 className="text-2xl">{p.title}</h2>
+                  </Link>
+				<h3 className="pr-10 text-slate-600 text-xl">{p.updatedAt}</h3>
+                </div>
+            </div>
+          ))}
+      </div>
+        </div>
       </div>
     </main>
   );
