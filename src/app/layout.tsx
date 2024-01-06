@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import { Poppins } from 'next/font/google'
 import './globals.css'
-import Link from 'next/link'
 
 const poppins = Poppins ({
 	weight: ["100", "200", "300", "400", "500", "600", "700", "800", "900"],
@@ -22,9 +21,6 @@ export default function RootLayout({
     <html lang="en">
       <body className={poppins.className}>
 	  <div className="w-full pt-36 flex flex-col items-center fixed">
-          <Link href="/" className="text-5xl font-bold">
-			espressive
-          </Link>
 	  </div>
 	  <div>
 		{children}

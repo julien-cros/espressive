@@ -14,7 +14,7 @@ export default function Render({ code }: RenderProps) {
   const MDX = useMDXComponent(code);
 
   return (
-    <article className="">
+    <article className="h-full w-full mt-40">
       <MDX />
     </article>
   );
