@@ -1,4 +1,4 @@
-'use client'
+"use client";
 
 import { allPosts } from "contentlayer/generated";
 import { compareDesc } from "date-fns";
@@ -27,23 +27,25 @@ export default async function Home() {
               Universe
             </p>
           </div>
-      <div className="gap-4 pt-36">
-        {allPosts
-          .sort((a, b) => compareDesc(a.createdAt, b.createdAt))
-          .map((p) => (
-            <div key={p.title} className="p-10">
-                <div
-                  className={"pl-10 border-t-2 border-black"}
-                  key={p.title}
-                >
-                  <Link href={p.url} className="">
-                    <h2 className="text-2xl">{p.title}</h2>
-                  </Link>
-				<h3 className="pr-10 text-slate-600 text-xl">{p.updatedAt}</h3>
+          <div className="gap-4 pt-36">
+            {allPosts
+              .sort((a, b) => compareDesc(a.createdAt, b.createdAt))
+              .map((p) => (
+                <div key={p.title} className="p-10">
+                  <div
+                    className={"pl-10 border-t-2 border-black"}
+                    key={p.title}
+                  >
+                    <Link href={p.url} className="">
+                      <h2 className="text-2xl">{p.title}</h2>
+                    </Link>
+                    <h3 className="pr-10 text-slate-600 text-xl">
+                      {p.updatedAt}
+                    </h3>
+                  </div>
                 </div>
-            </div>
-          ))}
-      </div>
+              ))}
+          </div>
         </div>
       </div>
     </main>

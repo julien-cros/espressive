@@ -4,12 +4,11 @@ import { useMDXComponent } from "next-contentlayer/hooks";
 import React from "react";
 
 type RenderProps = {
-  code: string  | undefined;
+  code: string | undefined;
 };
 
 export default function Render({ code }: RenderProps) {
-
-	if (!code) return null;
+  if (!code) return null;
 
   const MDX = useMDXComponent(code);
 
