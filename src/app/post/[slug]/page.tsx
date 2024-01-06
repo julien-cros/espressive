@@ -14,8 +14,8 @@ export default async function PostPage({ params }: PostPageProps) {
   const post = allPosts.find(({ slug }) => slug === params?.slug);
 
   return (
-    <div className="w-full h-full flex flex-col p-5 lg:p-10">
-      <div className="h-full w-full flex justify-center text-2xl md:text-5xl font-bold">
+    <div className="w-full h-full flex flex-col">
+      <div className="h-full w-full pt-16 flex justify-center text-2xl md:text-5xl font-bold">
         <h2>espressive</h2>
       </div>
       <div className="pt-10 md:pt-20">

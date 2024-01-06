@@ -9,7 +9,7 @@ export default async function Home() {
 
   return (
     <main className="flex h-full w-full flex-col items-center pb-4 md:pb-10">
-      <div className="h-full w-full flex justify-center mt-16 md:mt-32 text-2xl md:text-5xl font-bold">
+      <div className="h-full w-full flex justify-center mt-16 text-2xl md:text-5xl font-bold">
         <h2>espressive</h2>
       </div>
       <div className="w-3/4 lg:w-2/3 h-full mt-10">
