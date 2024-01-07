@@ -17,9 +17,6 @@ const PrevNextPost = ({ post } : TitleProps) => {
 	const prevPost = allPosts[postIndex - 1]
 	const nextPost = allPosts[postIndex + 1]
 
-	console.log(prevPost)
-	console.log(nextPost)
-
 	return (
 		<div className='h-full w-full fixed grid grid-cols-2 p-10'>
 			<div className='flex justify-start items-center'>

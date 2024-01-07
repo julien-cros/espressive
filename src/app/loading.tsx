@@ -13,7 +13,6 @@ export default function Loading() {
         </h3>
         <div className="w-1/4 md:w-1/6 h-3 md:h-4 justify-center items-center rounded-full border-2 border-black">
           <motion.div
-            onAnimationStart={() => console.log("start")}
             className="h-[8px] md:h-[12px] bg-black w-1/4 md:w-1/6 rounded-full"
             key="loading"
             initial={{ opacity: 1, width: "0%" }}
