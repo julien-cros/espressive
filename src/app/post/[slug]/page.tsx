@@ -5,6 +5,8 @@ import Render from "@/components/Render";
 import React from "react";
 import { useRouter } from "next/navigation";
 import PrevNextPost from "@/components/PrevNextPost";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
 
 type PostPageProps = {
   params?: {
@@ -25,7 +27,7 @@ export default async function PostPage({ params }: PostPageProps) {
   return (
     <div className="w-full h-full flex flex-col">
 			<div className="grid grid-cols-3 pt-16">
-			<div className="flex justify-center items-center cursor-pointer" onClick={() => router.back()}>back</div>
+			<div className="flex justify-center items-center "><FontAwesomeIcon className="h-10 zw-10 cursor-pointer z-10" onClick={() => router.back()} icon={faArrowLeft}/> </div>
       <div className="flex justify-center text-2xl md:text-5xl font-bold">
 				<h2>espressive</h2>
 			</div>
