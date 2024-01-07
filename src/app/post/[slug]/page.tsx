@@ -5,6 +5,7 @@ import Render from "@/components/Render";
 import React from "react";
 import { useRouter } from "next/navigation";
 import PrevNextPost from "@/components/PrevNextPost";
+import notFound from "./not-found";
 import Link from "next/link";
 
 type PostPageProps = {
@@ -19,8 +20,7 @@ export default async function PostPage({ params }: PostPageProps) {
   const router = useRouter();
 
   if (!post) {
-    router.push("/404");
-    return null;
+    return notFound();
   }
 
   return (
