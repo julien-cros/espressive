@@ -3,7 +3,6 @@
 import { allPosts } from "contentlayer/generated";
 import Render from "@/components/Render";
 import React from "react";
-import { useRouter } from "next/navigation";
 import PrevNextPost from "@/components/PrevNextPost";
 import notFound from "./not-found";
 import Link from "next/link";
@@ -17,8 +16,6 @@ type PostPageProps = {
 export default async function PostPage({ params }: PostPageProps) {
   const post = allPosts.find(({ slug }) => slug === params?.slug);
 
-  const router = useRouter();
-
   if (!post) {
     return notFound();
   }
@@ -27,12 +24,11 @@ export default async function PostPage({ params }: PostPageProps) {
     <div className="w-full h-full flex flex-col">
       <div className="grid grid-cols-3 pt-16 z-10">
         <div className="flex justify-center items-center ">
-          <p
+          <Link href={'/'}
             className="h-10 zw-10 cursor-pointer hover:scale-105 active:scale-95 transition duration-75 ease-out font-semibold text-base lg:text-lg"
-            onClick={() => router.back()}
           >
             home
-          </p>
+          </Link>
         </div>
         <div className="flex justify-center text-2xl md:text-5xl font-bold">
           <Link href={'/'}>espressive</Link>
