@@ -5,7 +5,7 @@ import { compareDesc } from "date-fns";
 import Link from "next/link";
 
 export default async function Home() {
-  await new Promise((resolve) => setTimeout(resolve, 4000));
+  await new Promise((resolve) => setTimeout(resolve, 2000));
 
   return (
     <main className="flex h-full w-full flex-col items-center pb-4 md:pb-10">
