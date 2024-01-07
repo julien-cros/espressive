@@ -5,11 +5,11 @@ import { compareDesc } from "date-fns";
 import Link from "next/link";
 
 export default async function Home() {
-  await new Promise((resolve) => setTimeout(resolve, 2000));
+  await new Promise((resolve) => setTimeout(resolve, 3000));
 
   return (
-    <main className="flex h-full w-full flex-col items-center pb-4 md:pb-10">
-      <div className="h-full w-full flex justify-center mt-16 text-2xl md:text-5xl font-bold">
+    <main className="flex h-full w-full flex-col items-center pb-4 md:pb-10 mt-16">
+      <div className="h-full w-full flex justify-center text-2xl md:text-5xl font-bold">
         <h2>espressive</h2>
       </div>
       <div className="w-3/4 lg:w-2/3 h-full mt-10">
