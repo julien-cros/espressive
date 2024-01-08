@@ -1,11 +1,14 @@
 "use client";
 
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import PrevNextPost from "@/components/PrevNextPost";
 import { allPosts } from "contentlayer/generated";
 import Render from "@/components/Render";
-import React from "react";
-import PrevNextPost from "@/components/PrevNextPost";
 import notFound from "./not-found";
 import Link from "next/link";
+import React from "react";
+
 
 type PostPageProps = {
   params?: {
@@ -13,7 +16,7 @@ type PostPageProps = {
   };
 };
 
-export default async function PostPage({ params }: PostPageProps) {
+export default function PostPage({ params }: PostPageProps) {
   const post = allPosts.find(({ slug }) => slug === params?.slug);
 
   if (!post) {
@@ -25,9 +28,10 @@ export default async function PostPage({ params }: PostPageProps) {
       <div className="grid grid-cols-3 pt-16 z-10">
         <div className="flex justify-center items-center ">
           <Link href={'/'}
-            className="h-10 zw-10 cursor-pointer hover:scale-105 active:scale-95 transition duration-75 ease-out font-semibold text-base lg:text-lg"
+            className="h-10 zw-10 cursor-pointer hover:scale-105 active:scale-95 transition duration-75 ease-out font-semibold text-base lg:text-lg flex flex-row items-center"
           >
-            home
+						<FontAwesomeIcon icon={faArrowLeft}  className="pr-1 h-4 w-4 "/>
+          	home
           </Link>
         </div>
         <div className="flex justify-center text-2xl md:text-5xl font-bold">
