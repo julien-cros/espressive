@@ -3,7 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 
-export default function Loading() {
+const  Loader = () => {	
   return (
     <div className="fixed w-full h-full">
       <div className="w-full flex flex-col justify-center items-center mt-24 md:mt-28">
@@ -39,3 +39,5 @@ export default function Loading() {
     </div>
   );
 }
+
+export default Loader;
