@@ -5,7 +5,7 @@ import Link from "next/link";
 import { motion, AnimatePresence, animate } from "framer-motion";
 import { allPosts } from "contentlayer/generated";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";	
+import { faArrowLeft, faArrowRight } from "@fortawesome/free-solid-svg-icons";
 
 type TitleProps = {
   post: string;
@@ -21,10 +21,9 @@ const PrevNextPost = ({ post }: TitleProps) => {
   const nextPost = allPosts[postIndex + 1];
 
   return (
+    //  left side
 
-	//  simple one with title in left and right
-
-    <div className="h-full w-full fixed grid grid-cols-2 p-10">
+    <div className="h-full w-full fixed grid grid-cols-2">
       <div className="flex justify-start items-center">
         {prevPost?.title && (
           <Link
@@ -34,11 +33,11 @@ const PrevNextPost = ({ post }: TitleProps) => {
             onMouseLeave={() => setOverLeft(false)}
           >
             <motion.div
-              className={`flex flex-row items-center`}
+              className={`flex flex-row items-center p-10`}
               key="prev-post-animation"
-              initial={{ opacity: 1, x: -0 }}
+              initial={{ opacity: 0, x: -500 }}
               animate={
-                overLeft ? { opacity: 1, x: 0 } : { opacity: 1, x: -280 }
+                overLeft ? { opacity: 1, x: 0 } : { opacity: 0, x: -500 }
               }
               transition={{
                 duration: 0.5,
@@ -46,10 +45,21 @@ const PrevNextPost = ({ post }: TitleProps) => {
               exit={{ opacity: 1, x: -300, transition: { duration: 0.5 } }}
             >
               <p>{prevPost.title}</p>
+            </motion.div>
+
+            <motion.div
+							className={`flex flex-row items-center  fixed`}
+							key="prev-post-arrow-animation"
+							initial={{ opacity: 0, x: -10 }}
+							animate={
+								overLeft ? { opacity: 1, x: -20, } : { opacity: 1, x: 0}
+							}
+							transition={{
+								duration: 0.5,
+							}}
+						>
               <FontAwesomeIcon
-                className={`h-10 w-10 pl-5 ${
-                  overLeft ? "rotate-180 transition" : ""
-                }`}
+                className="h-10 w-10 pl-5 justify-center items-center bg-gray-100 bg-opacity-75 rounded-sm"
                 icon={faArrowLeft}
               />
             </motion.div>
@@ -57,7 +67,7 @@ const PrevNextPost = ({ post }: TitleProps) => {
         )}
       </div>
 
-			{/* complicated one with hidden text */}
+      {/* right side*/}
 
       <div className="flex flex-row justify-end items-center">
         {nextPost?.title && (
@@ -68,41 +78,36 @@ const PrevNextPost = ({ post }: TitleProps) => {
             onMouseLeave={() => setOverRight(false)}
           >
             <motion.div
-              className={`flex flex-row items-center absolute right-0`}
-              initial={{ opacity: 1, x: 0 }}
+              className={`flex flex-row items-center justify-end absolute right-0`}
+              key="next-post-arrow-animation"
+              initial={{ opacity: 0, x: 10 }}
               animate={
-                overRight ? { opacity: 1, x: -400 } : { opacity: 1, x: 0 }
+                overRight ? { opacity: 1, x: 20 } : { opacity: 1, x: 0 }
               }
               transition={{
                 duration: 0.5,
               }}
-              key="next-post-animation"
             >
               <FontAwesomeIcon
-                className={`h-10 w-10 pr-10 ${
-                  overRight ? "rotate-180 transition" : ""
-                }`}
+                className="h-10 w-10 pr-5 justify-end items-center bg-gray-100 bg-opacity-75 rounded-sm"
                 icon={faArrowRight}
               />
             </motion.div>
-            <AnimatePresence>
-              {overRight && (
-                <motion.div
-                  className="flex flex-row items-center"
-                  key="next-post-animation"
-                  initial={{ opacity: 1, x: 400 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{
-                    duration: 0.5,
-                  }}
-                  exit={{ opacity: 1, x: 400 }}
-                >
-                  <p className={`pl-2 ${overRight ? "block" : "hidden"}`}>
-                    {nextPost.title}
-                  </p>
-                </motion.div>
-              )}
-            </AnimatePresence>
+
+						<motion.div
+							className={`flex flex-row items-center p-10`}
+							key="next-post-animation"
+							initial={{ opacity: 0, x: 400 }}
+							animate={
+								overRight ? { opacity: 1, x: 0 } : { opacity: 0, x: 380 }
+							}
+							transition={{
+								duration: 0.5,
+							}}
+						>
+
+              <p>{nextPost.title}</p>
+						</motion.div>
           </Link>
         )}
       </div>
