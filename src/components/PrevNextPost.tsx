@@ -33,7 +33,7 @@ const PrevNextPost = ({ post }: TitleProps) => {
             onMouseLeave={() => setOverLeft(false)}
           >
             <motion.div
-              className={`flex flex-row items-center p-10`}
+              className={`flex flex-row items-center p-10 md:hidden lg:block`}
               key="prev-post-animation"
               initial={{ opacity: 0, x: -500 }}
               animate={
@@ -48,7 +48,7 @@ const PrevNextPost = ({ post }: TitleProps) => {
             </motion.div>
 
             <motion.div
-							className={`flex flex-row items-center  fixed`}
+							className="flex flex-row items-center fixed"
 							key="prev-post-arrow-animation"
 							initial={{ opacity: 0, x: -10 }}
 							animate={
@@ -59,7 +59,7 @@ const PrevNextPost = ({ post }: TitleProps) => {
 							}}
 						>
               <FontAwesomeIcon
-                className="h-10 w-10 pl-5 justify-center items-center bg-gray-100 bg-opacity-75 rounded-sm"
+                className="h-5 w-5 md:h-10 md:w-10 pl-5 justify-center items-center bg-gray-100 bg-opacity-75 rounded-sm"
                 icon={faArrowLeft}
               />
             </motion.div>
@@ -89,13 +89,13 @@ const PrevNextPost = ({ post }: TitleProps) => {
               }}
             >
               <FontAwesomeIcon
-                className="h-10 w-10 pr-5 justify-end items-center bg-gray-100 bg-opacity-75 rounded-sm"
+                className="h-5 w-5 md:h-10 md:w-10 pr-5 justify-end items-center bg-gray-100 bg-opacity-75 rounded-sm"
                 icon={faArrowRight}
               />
             </motion.div>
 
 						<motion.div
-							className={`flex flex-row items-center p-10`}
+							className="flex flex-row items-center p-10 md:hidden lg:block"
 							key="next-post-animation"
 							initial={{ opacity: 0, x: 400 }}
 							animate={
