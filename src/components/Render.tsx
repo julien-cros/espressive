@@ -14,7 +14,7 @@ export default function Render({ code }: RenderProps) {
 
   return (
     <div className="w-full h-full flex flex-col justify-center items-center">
-      <article className="prose lg:prose-lg px-5">
+      <article className="prose lg:prose-lg px-5 z-10">
         <MDX />
       </article>
     </div>
