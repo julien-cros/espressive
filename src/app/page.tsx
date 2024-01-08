@@ -75,11 +75,12 @@ export default function Home() {
                                 {p.updatedAt}
                               </h3>
                             </Link>
-                            <AnimatePresence>
+                            <AnimatePresence
+														>
 															{display && postName === p.title &&  (
                               <motion.div
                                 className={`pl-4 md:pl-10 pr-4 ${
-                                  display ? "block" : "hidden"
+                                  display ? "hidden md:block" : "hidden"
                                 } `}
                                 key="posts-bottom-animation"
                                 initial={{ opacity: 0, y: "5%" }}
