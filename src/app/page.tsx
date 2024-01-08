@@ -5,14 +5,17 @@ import { allPosts } from "contentlayer/generated";
 import { compareDesc } from "date-fns";
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { AnimatePresence, motion } from "framer-motion";
+import Render from "@/components/Render";
 
 export default function Home() {
   const [loading, setLoading] = useState(false);
+  const [display, setDisplay] = useState(false);
+	const [postName, setPostName]  = useState("");
 
-  // useEffect(() => {
-  //   setTimeout(() => setLoading(false), 5000);
-  // });
+	useEffect(() => {
+    setTimeout(() => setLoading(false), 5000);
+  });
 
   return (
     <>
@@ -41,28 +44,56 @@ export default function Home() {
                 </p>
               </div>
               <motion.div
-								key="loading"
-								initial={{ opacity: 0, y: "10%" }}
-								animate={{ opacity: 1, y: "0%" }}
-								transition={{
-									duration: 1,
-								}}
-							>
+                key="posts-bottom-animation"
+                initial={{ opacity: 0, y: "5%" }}
+                animate={{ opacity: 1, y: "0%" }}
+                transition={{
+                  duration: 1,
+                }}
+              >
                 <div className="gap-4 pt-10 md:pt-36">
                   {allPosts
                     .sort((a, b) => compareDesc(a.createdAt, b.createdAt))
                     .map((p) => (
-                      <div key={p.title} className="pt-4 md:p-10">
+                      <div
+                        key={p.title}
+                        className="pt-4 md:p-10 h-36 overflow-y-hidden"
+                      >
                         <div
-                          className={"pl-2 md:pl-10 border-t-2 border-black"}
+                          className="pl-2 md:pl-10 border-t-2 border-black"
                           key={p.title}
                         >
-                          <Link href={p.url} className="">
-                            <h2 className="text-md md:text-2xl">{p.title}</h2>
-                          </Link>
-                          <h3 className=" text-slate-600 text-sm md:text-xl">
-                            {p.updatedAt}
-                          </h3>
+                          <div className="grid grid-flow-row-dense grid-cols-3 lg:grid-cols-2">
+                            <Link
+                              href={p.url}
+                              className="col-span-2 lg:col-span-1"
+                              onMouseOver={() => {setDisplay(true); setPostName(p.title)}}
+                              onMouseLeave={() => {setDisplay(false); setPostName("")}}
+                            >
+                              <h2 className="text-md md:text-2xl">{p.title}</h2>
+                              <h3 className=" text-slate-600 text-sm md:text-xl">
+                                {p.updatedAt}
+                              </h3>
+                            </Link>
+                            <AnimatePresence>
+															{display && postName === p.title &&  (
+                              <motion.div
+                                className={`pl-4 md:pl-10 pr-4 ${
+                                  display ? "block" : "hidden"
+                                } `}
+                                key="posts-bottom-animation"
+                                initial={{ opacity: 0, y: "5%" }}
+                                animate={{ opacity: 1, y: "0%" }}
+                                transition={{
+                                  duration: 1.5,
+                                }}
+																exit={{ opacity: 0, y: "5%" }}
+                              >
+                                <Render code={p.body.code} />
+                              </motion.div>
+																)}
+                            </AnimatePresence>
+                          </div>
                         </div>
                       </div>
                     ))}
