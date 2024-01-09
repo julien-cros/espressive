@@ -9,7 +9,7 @@ import { AnimatePresence, motion } from "framer-motion";
 import Render from "@/components/Render";
 
 export default function Home() {
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [display, setDisplay] = useState(false);
 	const [postName, setPostName]  = useState("");
 
