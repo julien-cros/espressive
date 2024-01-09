@@ -38,8 +38,8 @@ export default function Home() {
                   Espresso
                 </p>
               </div>
-              <div className="w-full h-10 md:h-20  lg:h-[120px]flex items-center border-t-4 md:border-t-8 border-black ">
-                <p className="text-4xl md:text-7xl lg:text-9xl flex items-center font-black lg:tracking-[-0.4rem]">
+              <div className="w-full h-10 md:h-20 pt-5  lg:h-[120px] flex items-center border-t-4 md:border-t-8 border-black ">
+                <p className="text-4xl md:text-7xl lg:text-9xl font-black lg:tracking-[-0.4rem]">
                   Universe
                 </p>
               </div>
