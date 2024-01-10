@@ -100,10 +100,10 @@ export default function Home() {
                                       display ? "hidden md:block" : "hidden"
                                     } `}
                                     key="posts-bottom-animation"
-                                    initial={{ opacity: 0, y: "5%" }}
+                                    initial={{ opacity: 0, y: "2%" }}
                                     animate={{ opacity: 1, y: "0%" }}
                                     transition={{
-                                      duration: 1,
+                                      duration: 0.5,
                                     }}
                                     exit={{ opacity: 0, y: "5%" }}
                                   >
