@@ -16,12 +16,13 @@ export default function Render({ code }: RenderProps) {
   return (
     <div className="w-full h-full flex flex-col justify-center items-center px-10 ">
 			<motion.div
+				className="flex flex-col justify-center items-center z-10"
 				key="posts-bottom-animation"
 				initial={{ opacity: 0, y: "2%" }}
 				animate={{ opacity: 1, y: "0%" }}
 				transition={{ duration: 0.5 }}
 			>
-      <article className="prose lg:prose-lg z-10 ">
+      <article className="prose lg:prose-lg">
         <MDX />
       </article>
 			</motion.div>
