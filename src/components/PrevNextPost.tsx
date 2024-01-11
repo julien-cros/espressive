@@ -33,7 +33,7 @@ const PrevNextPost = ({ post }: TitleProps) => {
             onMouseLeave={() => setOverLeft(false)}
           >
             <motion.div
-              className={`flex flex-row items-center p-10 md:hidden lg:block`}
+              className={`flex-row items-center p-10 hidden lg:block`}
               key="prev-post-animation"
               initial={{ opacity: 0, x: -500 }}
               animate={
@@ -95,7 +95,7 @@ const PrevNextPost = ({ post }: TitleProps) => {
             </motion.div>
 
 						<motion.div
-							className="flex flex-row items-center p-10 md:hidden lg:block"
+							className="flex-row items-center p-10 hidden lg:block"
 							key="next-post-animation"
 							initial={{ opacity: 0, x: 400 }}
 							animate={
@@ -105,7 +105,6 @@ const PrevNextPost = ({ post }: TitleProps) => {
 								duration: 0.5,
 							}}
 						>
-
               <p>{nextPost.title}</p>
 						</motion.div>
           </Link>
