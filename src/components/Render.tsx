@@ -5,11 +5,10 @@ import React from "react";
 import { motion }	from "framer-motion";
 
 type RenderProps = {
-  code: string | undefined;
+  code: string;
 };
 
 export default function Render({ code }: RenderProps) {
-  if (!code) return null;
 
   const MDX = useMDXComponent(code);
 
