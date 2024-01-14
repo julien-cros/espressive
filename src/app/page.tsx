@@ -12,15 +12,23 @@ export default function Home() {
   const [loading, setLoading] = useState(true);
   const [display, setDisplay] = useState(false);
   const [postName, setPostName] = useState("");
+	
+	useEffect(() => {
+    const isVisited = window.localStorage.getItem("visited");
 
-  useEffect(() => {
-    setTimeout(() => {
+    if (isVisited) {
       setLoading(false);
-    }, 5000);
+    } else {
+      setTimeout(() => {
+        setLoading(false);
+        window.localStorage.setItem("visited", "true");
+      }, 5000);
+    }
   }, []);
-
+	
+	
   return (
-    <>
+    <div>
       {loading ? (
         <Loader />
       ) : (
@@ -122,6 +130,6 @@ export default function Home() {
           </main>
         </motion.div>
       )}
-    </>
+    </div>
   );
 }
