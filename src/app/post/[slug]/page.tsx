@@ -61,10 +61,10 @@ export default function PostPage({ params }: PostPageProps) {
       <div className="grid grid-cols-3 pt-16 z-10">
         <div className="flex justify-center items-center ">
           <Link href={'/'}
-            className="h-10 w-10 cursor-pointer hover:scale-105 active:scale-95 transition duration-75 ease-out font-semibold text-base lg:text-lg flex flex-row items-center"
+            className="h-3 w-3 md:h-5 md:w-5 cursor-pointer hover:scale-105 active:scale-95 transition duration-75 ease-out font-semibold text-base lg:text-lg flex flex-row items-center"
           >
-						<FontAwesomeIcon icon={faArrowLeft}  className="pr-1 h-4 w-4 "/>
-          	home
+						<FontAwesomeIcon icon={faArrowLeft}  className="pr-1 h-4 w-4  "/>
+          	<p className="hidden md:block">home</p>
           </Link>
         </div>
         <div className="flex justify-center text-2xl md:text-5xl font-bold">
@@ -72,7 +72,7 @@ export default function PostPage({ params }: PostPageProps) {
         </div>
       </div>
       <div className="h-full w-full pt-16 flex justify-center text-3xl md:text-5xl font-bold">
-        <h3 className="pl-10 md:pl-0">{post?.title}</h3>
+        <h3 className="pl-10 md:pl-0 z-40">{post?.title}</h3>
       </div>
       <div className="pt-10 md:pt-20">
         <Render code={post?.body.code} />
