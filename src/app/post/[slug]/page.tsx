@@ -1,7 +1,6 @@
-"use client";
-
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faArrowLeft } from "@fortawesome/free-solid-svg-icons";
+import type { Metadata } from "next";
 import PrevNextPost from "@/components/PrevNextPost";
 import { allPosts } from "contentlayer/generated";
 import Render from "@/components/Render";
@@ -15,6 +14,40 @@ type PostPageProps = {
     slug?: string;
   };
 };
+
+
+
+export async function generateMetadata({
+	params,
+}: PostPageProps): Promise<Metadata | undefined> {
+	if (!params?.slug) {
+		return;
+	}
+	const post = allPosts.find(({ slug }) => slug === params?.slug);
+
+	if (!post) {
+		return;
+	}
+
+	return {
+		metadataBase: new URL("https://espressive.fr"),
+		title: post.title,
+		description: post.description,
+		openGraph: {
+			title: post.title,
+			description: post.description,
+			url: `https://espressive.fr/post/${post.slug}`,
+			type: "article",
+			publishedTime: post.createdAt,
+			modifiedTime: post.updatedAt,
+		},
+		twitter: {
+			title: post.title,
+			description: post.description,
+			card: "summary_large_image",
+		},
+	};
+}
 
 export default function PostPage({ params }: PostPageProps) {
   const post = allPosts.find(({ slug }) => slug === params?.slug);
