@@ -9,19 +9,18 @@ import { AnimatePresence, motion } from "framer-motion";
 import Render from "@/components/Render";
 
 export default function Home() {
-  const [loading, setLoading] = useState(true);
+ const [loading, setLoading] = useState(false);
   const [display, setDisplay] = useState(false);
   const [postName, setPostName] = useState("");
-	
-	useEffect(() => {
+
+  useEffect(() => {
     const isVisited = window.localStorage.getItem("visited");
 
-    if (isVisited) {
-      setLoading(false);
-    } else {
+    if (!isVisited) {
+			setLoading(true);
       setTimeout(() => {
-        setLoading(false);
         window.localStorage.setItem("visited", "true");
+				setLoading(false);
       }, 5000);
     }
   }, []);
