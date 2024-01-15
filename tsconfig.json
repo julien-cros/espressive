@@ -33,6 +33,6 @@
 	  "**/*.tsx",
 	  ".next/types/**/*.ts",
 	  ".contentlayer/generated"
-	],
+, "contentlayer.config.js"	],
 	"exclude": ["node_modules"]
   }
