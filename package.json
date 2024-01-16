@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "npx contentlayer build && next dev",
+    "dev": "contentlayer build && next build",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
