@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "npx contentlayer build && next dev",
+    "dev": "next dev",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -19,12 +19,16 @@
     "contentlayer": "^0.3.4",
     "date-fns": "^3.2.0",
     "framer-motion": "^10.18.0",
+    "hastscript": "^8.0.0",
     "markdown-wasm": "^1.2.0",
     "n": "^9.2.0",
     "next": "14.0.4",
     "next-contentlayer": "^0.3.4",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
+    "rehype-autolink-headings": "^7.1.0",
+    "rehype-pretty-code": "^0.12.3",
+    "rehype-slug": "^6.0.0",
     "remark-gfm": "^4.0.0",
     "stable": "^0.1.8"
   },
@@ -43,6 +47,13 @@
   "overrides": {
     "next-contentlayer": {
       "next": "$next"
-    }
+    },
+    "@opentelemetry/api": "1.4.1",
+    "@opentelemetry/core": "1.13.0",
+    "@opentelemetry/exporter-trace-otlp-grpc": "0.39.1",
+    "@opentelemetry/resources": "1.13.0",
+    "@opentelemetry/sdk-trace-base": "1.13.0",
+    "@opentelemetry/sdk-trace-node": "1.13.0",
+    "@opentelemetry/semantic-conventions": "1.13.0"
   }
 }
